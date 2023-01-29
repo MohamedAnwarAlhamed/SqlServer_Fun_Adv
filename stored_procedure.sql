@@ -1,4 +1,4 @@
-drop, alter
+--drop, alter, create procedure
 create procedure name
         @param1 type,
         @param2 type output
