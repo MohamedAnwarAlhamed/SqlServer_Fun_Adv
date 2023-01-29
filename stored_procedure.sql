@@ -128,3 +128,41 @@ else
 print 'invalid age or id'
 
 exec p2 1, 'abc', 20
+---------------------------
+create proc p3 @id int
+as 
+declare @age int
+select @age = st_age from student where st_id = @id
+return @age
+
+declare @a int
+exec @a = p3 1
+select @a
+---------------------------
+create proc p3 @id int, @age int output
+as 
+select @age = st_age from student where st_id = @id
+
+declare @a int
+exec p3 1, @a output
+select @a
+---------------------------
+declare @t table(age int)
+create proc p3 @id int, @t table output
+as 
+select @age = st_age from student where st_id = @id
+---------------------------
+create proc p5 @x int,@y int = 10
+as 
+select @x + @y
+
+exec p5 @y = 10, @x = 5
+---------------------------
+create proc p7 @col varchar(50), @t varchar(50)
+with encryption
+as 
+execute ('select ' + @col + ' from ' + @t)
+
+exec p7 'st_id, st_name', 'student'
+---------------------------
+sp_help p7
