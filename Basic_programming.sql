@@ -20,13 +20,13 @@ inser into @t
 select st_id from student 
 
 select * from @t
---/////////////////////////
+--------------------------------------------
 declare @id int 
 update student 
 set st_age = 20, @id = st_id
 where st_fname = 'ali'
 select @id
---/////////////////////////
+--------------------------------------------
 declare @x int = 3
 select top(@x)*
 from student
