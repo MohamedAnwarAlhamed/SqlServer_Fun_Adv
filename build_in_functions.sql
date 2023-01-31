@@ -72,5 +72,24 @@ select Email,substring(email, 1, characterindex('@', email) - 1) as user_name
 from Employee
 
 select str(123.45, 5, 2) -- 123.45
+-----------------------------------------
+-----------------------------------------
 --convrting
+select cast('123' as int) -- 123
+select cast('123.45' as decimal(5,2)) -- 123.45
+select cast('1-1-2019' as datetime) -- 2019-01-01
+select convert(int, '123') -- 123
+select choose (1, 'hi', 'hello') -- hi
+select first_name, choose(gender,'male','female') from Employee
+select isnull(null, 'hi') -- hi
+select isnull(first_name, 'hi') from Employee
+select isnull(10, 20) -- 10
+select isnull(phone,'not fount')
+select round(123.45) -- 123
+select coalesce(null, 'hi') -- hi
+-----------------------------------------
+-----------------------------------------
 --controlling
+
+
+--https://www.w3schools.com/sql/sql_ref_sqlserver.asp
