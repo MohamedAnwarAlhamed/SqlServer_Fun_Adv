@@ -47,7 +47,30 @@ select dateadd(month, 1, '2019-01-01')
 --https://www.w3schools.com/sql/sql_ref_sqlserver.asp
 -----------------------------------------
 -----------------------------------------
-
 --string
+select concat(first_name, ' ', last_name) as full_name from Employee
+select len(first_name) from Employee
+select lower(first_name) from Employee
+select upper(first_name) from Employee
+select trim(first_name) from Employee
+select ltrim(first_name) from Employee
+select rtrim(first_name) from Employee
+
+select characterindex('anwar', 'hi mohamed anwar') -- index from 1
+select left('hi mohamed anwar', 5)
+select right('hi mohamed anwar', 5)
+
+select Email,left(email, characterindex('@', email) - 1) as user_name
+        right(email, len(email) - characterindex('@', email)) as domain_name
+from Employee
+
+select replace('hi mohamed anwar', 'anwar', 'ahmed')
+select substring('hi mohamed anwar', 5, 3) 
+
+select Email,substring(email, 1, characterindex('@', email) - 1) as user_name
+        substring(email, characterindex('@', email)+1, len(email) - characterindex('@', email)) as domain_name
+from Employee
+
+select str(123.45, 5, 2) -- 123.45
 --convrting
 --controlling
