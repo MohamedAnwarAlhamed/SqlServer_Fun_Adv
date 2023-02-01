@@ -43,3 +43,39 @@ set Total_Purchase = @Total_Purchase
 where Customer_Id = @customer_id
 close data
 deallocate data
+----------------------------------
+declare c1 cursor 
+for select st_id, st_name from student
+for read only
+declare @id int
+declare @name varchar(50)
+
+open c1
+fetch c1 into @id, @name
+while @@fetch_status = 0
+begin
+    select @id, @name
+    fetch c1 into @id, @name
+end
+close c1
+deallocate c1
+----------------------------------
+declare c2 cursor
+for select ins_name, salary from instructor
+     where salary is not null
+for update 
+declare @n varchare(50)
+declare @sal int
+open c2
+fetch c2 into @n, @sal
+while @@fetch_status = 0
+begin
+    if @sal <= 2000 then 
+        update instructor set salary = @sal * 1.2 where where current of c2
+    else 
+        update instructor set salary = @sal * 1.1 where where current of c2
+    end
+    fetch c2 into @n, @sal
+end
+close c2
+deallocate c2
