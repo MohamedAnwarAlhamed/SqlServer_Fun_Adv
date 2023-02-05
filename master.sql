@@ -123,6 +123,20 @@ are not fully committed. LDF files can be opened with Microsoft SQL Server
 software application.
 */
 
+------------constraints in sql-------------------
+-- constraint c1 primary key
+-- constraint c2 check(salary > 1000) or check(address in ('sanaa','aden'))
+-- constraint c3 unique 
+-- constraint c4 foreign key(----) references ---(---)
+-- Default 'male'
+-- not null
+
+create rule as @x > 1000;
+
+create default deft as 1000; 
+
+truncate table table_name;
+
 
 
 
