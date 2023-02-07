@@ -136,6 +136,30 @@ create rule as @x > 1000;
 create default deft as 1000; 
 
 truncate table table_name;
+------------------------------
+select productid, quentity,
+        prod_prev = lag(quentity) over(order by quentity),
+        prod_next = lead(quentity) over(order by quentity)
+from mysales
+
+select productid, quentity,
+        prod_prev = lag(quentity) over(partition by productid order by quentity),
+        prod_next = lead(quentity) over(partition by productid order by quentity)
+from mysales
+
+select productid, quentity,
+        lowest = first_value(quentity) over(partition by productid order by quentity),
+        highest = last_value(quentity) over(partition by productid order by quentity),
+        prod_prev = lag(quentity) over(partition by productid order by quentity),
+        prod_next = lead(quentity) over(partition by productid order by quentity)
+from mysales
+
+select productid, quentity,
+        prod_prev = lag(quentity) over(partition by productid order by quentity),
+        prod_prev_diff = quentity - isnull(lag(quentity) over(partition by productid order by quentity),0)
+from mysales
+
+
 
 
 
