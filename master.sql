@@ -158,8 +158,20 @@ select productid, quentity,
         prod_prev = lag(quentity) over(partition by productid order by quentity),
         prod_prev_diff = quentity - isnull(lag(quentity) over(partition by productid order by quentity),0)
 from mysales
+---------------------------
+--local temp table(session based table)
+create table #table1
+(
+    id int identity(1,1),
+    name varchar(50)    
+)
 
-
+--shared table
+create table ##table1
+(
+    id int identity(1,1),
+    name varchar(50)    
+)
 
 
 
