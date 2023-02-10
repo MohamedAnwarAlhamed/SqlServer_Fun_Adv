@@ -173,6 +173,58 @@ create table ##table1
     name varchar(50)    
 )
 
+merge into lasttrans as T 
+using dailytrans as s 
+on T.id = S.id 
+
+when matched then
+update set T.value = S.value
+
+when not matched then
+insert (id, value) values (S.id, S.value)
+
+when not matched by target then
+delete
+
+insert top(3) into test 
+    select st_id, st_fnme
+    from student
+
+update top(2) Department
+set dept_lacatoin = 'alex'
+
+delete top(2) from CURRENT_TIMESTAMP
+---------------------------
+select productID, salesmanNme, sum(quentity) as 'total quentity'
+from sales
+group by productID, salesmanNme
+
+select productID, salesmanNme, sum(quentity) as 'total quentity'
+from sales
+group by productID
+
+select productID, salesmanNme, sum(quentity) as 'total quentity'
+from sales
+group by rollup(productID, salesmanNme)
+
+select productID, salesmanNme, sum(quentity) as 'total quentity'
+from sales
+group by cube(productID, salesmanNme)
+
+select select productID, salesmanNme, sum(quentity) as 'total quentity'
+from sales
+group by grouping sets(productID, salesmanNme)
+
+select * from sales 
+pivot (sum(quentity) for productID in (ahmed, khaled, ali)) as pvt
+
+select * from pivoting 
+pivot (sum(quentity) for productID in (ahmed, khaled, ali)) as pvt
+
+select * from pivoting 
+
+select * from pivoting 
+unpivot (quentity for productID in (ahmed, khaled, ali)) as unpvt
 
 
 
