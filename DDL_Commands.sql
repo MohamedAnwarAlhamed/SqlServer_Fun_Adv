@@ -18,11 +18,11 @@ create table test
 
 drop table test;
 -------------datatypes----------------
--- interger
--- float - real - double - decimal(5,2)
--- char(200) - varchar(50)
--- date - time - datetime - 
--- bit - binary(50)
+-- interger, smallint, tinyint, bigint
+-- float - real - double - decimal(5,2) - numeric(5,2) - money - smallmoney - numeric(18,0), 
+-- char(200) - varchar(50), nchar(50), nvarchar(50) - text - ntext
+-- date - time - datetime - datetime2 - smalldatetime - datetimeoffset
+-- bit - binary(50) - varbinary(50) - image - timestamp 
 
 -------------constraints----------------
 -- primary key
