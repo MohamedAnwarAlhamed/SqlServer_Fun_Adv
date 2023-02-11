@@ -48,4 +48,46 @@ from customer join sales
     join product
         on sales_product.product_id = product.product_id
 where first_name = 'Merlene' and last_name = 'Vinson'
+----------------------------------------------
+--join, cross join
+select st_fname, dept_name
+from student s, department d
+
+select st_fname, dept_name
+from student s, department d
+
+--inner join, equi join
+select st_fname, dept_name
+from student s , department d
+where s.dept_id = d.dept_id
+
+select st_fname, dept_name
+from student s inner join department d
+        on s.dept_id = d.dept_id
+--outer join
+--left outer join, right outer join, full outer join
+select st_fname, dept_name
+from student s left outer join department d
+        on s.dept_id = d.dept_id
+where dept_name is null
+
+select st_fname, dept_name
+from student s right outer join department d
+        on s.dept_id = d.dept_id
+where st_fname is null
+
+select st_fname, dept_name
+from student s full outer join department d
+        on s.dept_id = d.dept_id
+where st_fname is null or dept_name is null
+
+--self join
+select s1.st_fname, s2.st_fname
+from student s1, student s2
+where s1.st_fname = s2.st_fname
+
+select s1.st_fname, s2.st_fname
+from student s1 inner join student s2
+        on s1.st_fname = s2.st_fname
+
 
