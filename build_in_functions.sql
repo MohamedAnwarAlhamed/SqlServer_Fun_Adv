@@ -27,6 +27,29 @@ select Gender.gender_name,
         count(*)
 from Employee join Gender on Employee.Gender_Id = Gender.gender_id
 group by   gender_name
+
+select count(*) from student
+
+select count(st_age) from student
+
+select sum(salary) from employee
+
+select avg(salary) from employee
+
+select count(st_id) from student 
+group by dept_id
+
+select dept_id, count(st_id) from student 
+group by dept_id
+
+select d.dept_id, dept_name, count(st_id)
+from student s join department d 
+where s.dept_id = d.dept_id
+group by d.dept_id, dept_name
+
+select dept_id, count(st_id) from student 
+group by dept_id
+having count(st_id) > 2
 -----------------------------------------
 -----------------------------------------
 --date
