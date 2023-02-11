@@ -33,16 +33,6 @@ drop table test;
 -- not null
 -- identity(1,1)
 ---------------------------------------
-delete from emlopyee 
-where gender = 'F'
-and age>60;
-
-update department set deptmanagerid = NULL
-
-delete from ProjectEmps;
-
-truncate table ProjectEmps;
----------------------------------------
 create table test
 (
     id int identity(1,1),
