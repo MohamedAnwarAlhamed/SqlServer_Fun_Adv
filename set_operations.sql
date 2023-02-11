@@ -73,3 +73,6 @@ select First_nme + ' ' + Last_nme, working_hourly * hour_salary
 from employee join employee_hourly 
 on employee.emp_id = employee_hourly.emp_id
 ---------------------------
+select st_id, st_fname from student
+union all 
+select ins_id, ins_name from instructor
