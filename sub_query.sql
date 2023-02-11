@@ -84,3 +84,10 @@ where exists(select customer_id
             where year(sales_date) = 2018
             and month(sales_date) = 5)
             and customer_id = customer.customer_id)
+--------------------------------------------------
+select * from student
+where st_age > (select avg(st_age) from student)
+--------------------------------------------------
+select *, (select count(st_id) from student)
+from student
+--------------------------------------------------
