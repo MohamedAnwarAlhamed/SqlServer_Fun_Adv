@@ -1,11 +1,11 @@
 --cursor 
 declare ddd cursor for select 
 open 
-fetch next from ddd into varaiable
+fetch next from ddd into varaiable or fetch ddd int variable
 while @@fetch_status = 0
 begin
     -- do something
-    fetch next from ddd into variable
+    fetch next from ddd into variable or fetch ddd int variable
 end
 close
 deallocate ddd
