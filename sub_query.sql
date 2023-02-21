@@ -40,7 +40,7 @@ where product_id in(
 )
 --------------------------------------------------
 select * from customer
-where customer_id in()
+where customer_id in(
 select customer_id 
 from sales join sales_products
 on sales.sales_id = sales_products.sales_id
@@ -82,7 +82,7 @@ select * from customer
 where exists(select customer_id 
             from sales
             where year(sales_date) = 2018
-            and month(sales_date) = 5)
+            and month(sales_date) = 5
             and customer_id = customer.customer_id)
 --------------------------------------------------
 select * from student
