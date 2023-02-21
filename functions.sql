@@ -20,7 +20,7 @@ begin
     select @Contract_Type = Contract_Type from Employee where EmployeeId = @EmployeeId
     if  @Contract_Type is null
         begin
-        set @Contract_Type = 0
+        set @Salary = 0
         --print 'Employee does not exist'
         end
     if @contract_Type = 'FIXED'
@@ -43,7 +43,7 @@ begin
     return @TotalPurchases
 end
 
-select *, GetCustomerTotalPurcgases(CustomerId)
+select *, GetCustomerTotalPurchases(CustomerId)
 from Customer
 --------------------------------------------------
 create function GetAVG(@StdNo bigint)
