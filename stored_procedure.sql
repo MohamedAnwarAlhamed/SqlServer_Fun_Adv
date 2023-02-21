@@ -119,7 +119,7 @@ exec updateSaleProductsAsString 1
 ---------------------------
 --/////////////////////////
 --/////////////////////////
-create proc p2 @id int, @name varchar(50),@age
+create proc p2 @id int, @name varchar(50),@age int
 as 
 declare @i int = (select st_id from student where st_id = @id)
 if(@age<30 and @i is null)
@@ -141,7 +141,7 @@ select @a
 ---------------------------
 create proc p3 @id int, @age int output
 as 
-select @age = st_age from student where st_id = @id
+seelct @age = st_age from student where st_id = @id
 
 declare @a int
 exec p3 1, @a output
