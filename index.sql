@@ -1,8 +1,8 @@
 create clustered index myindex
-on coures(crs_naame)
+on coures(crs_name)
 
 create nonclustered index myindex
-on coures(crs_naame)
+on coures(crs_name)
 
 select * from courses
 where crs_name = 'java'
