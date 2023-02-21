@@ -1,5 +1,5 @@
 --drop, alter, create procedure
-create procedure name
+create procedure name or create proc name
         @param1 type,
         @param2 type output
 as
@@ -39,7 +39,7 @@ create procedure InsertUpdateOnDepartment
         @DeptNo int,
         @DeptName varchar(50),
         @DeptParent int
-AS
+as
 begin
         if not exists (select * from Department where DeptNo = @DeptParent)
                 begin
