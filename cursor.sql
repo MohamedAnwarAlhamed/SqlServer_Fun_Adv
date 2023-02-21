@@ -1,4 +1,4 @@
-cursor 
+--cursor 
 declare ddd cursor for select 
 open 
 fetch next from ddd into varaiable
@@ -36,7 +36,6 @@ begin
     set @Total_Purchase = @Total_Purchase + @Total_price
     fetch next from data into @Total_price
 end
-
 print @Total_Purchase
 update Customer 
 set Total_Purchase = @Total_Purchase
@@ -49,7 +48,6 @@ for select st_id, st_name from student
 for read only
 declare @id int
 declare @name varchar(50)
-
 open c1
 fetch c1 into @id, @name
 while @@fetch_status = 0
