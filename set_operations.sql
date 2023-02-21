@@ -65,7 +65,7 @@ from product join sales_products
 on product.product_id = sales_products.product_id
 where month(sale_date) = 8 and year(sale_date) = 2005
 ---------------------------
-select First_nme + ' ' + Last_nme, monthly_salary
+select First_name + ' ' + Last_nme, monthly_salary
 from employee join employee_fixed 
 on employee.emp_id = employee_fixed.emp_id
 union 
